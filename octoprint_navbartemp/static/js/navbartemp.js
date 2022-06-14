@@ -53,9 +53,9 @@ $(function() {
                 var name = toolName;
             
                 if (toolName == "Tool" || toolName == "End" || toolName == "Hotend" || toolName == "Hot End") {
-                    name = self.settings.displayNames.hotend;
+                    name = self.settings.displayNames.hotend();
                 } else if (toolName == "Bett" || toolName == "Bed") {
-                    name = self.settings.displayNames.bed;
+                    name = self.settings.displayNames.bed();
                 } else {
                     name += ":";
                 }
