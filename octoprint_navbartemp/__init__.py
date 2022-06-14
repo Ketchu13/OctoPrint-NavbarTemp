@@ -23,11 +23,11 @@ class NavBarPlugin(octoprint.plugin.StartupPlugin,
         self.piSocTypes = (["BCM2708", "BCM2709", "BCM2835", "BCM2711"])
         self.debugMode = False  # to simulate temp on Win/Mac
         self.displayCpuTemp = None
-        
-        self.bedTempDisplayName = "Bed:"
-        self.hotendTempDisplayName = "Hotend:"
-        self.cpuTempDisplayName = "Cpu:"
-        
+
+        self.bedTempDisplayName = "Bed"
+        self.hotendTempDisplayName = "Hotend"
+        self.cpuTempDisplayName = "Cpu"
+
         self._checkTempTimer = None
         self._checkCmdTimer = None
         self.sbc = SBC()
@@ -100,25 +100,25 @@ class NavBarPlugin(octoprint.plugin.StartupPlugin,
             cmd_name="",
             useShortNames=False,
             makeMoreRoom=False,
-            soc_name="SoC",
-            displayNames = dict(
-                bed = self.bedTempDisplayName,
-                hotend = self.hotendTempDisplayName,
-                cpu = self.cpuTempDisplayName
+            soc_name=self.cpuTempDisplayName,
+            displayNames=dict(
+                bed=self.bedTempDisplayName,
+                hotend=self.hotendTempDisplayName,
+                cpu=self.cpuTempDisplayName
             )
         )
 
     def on_settings_save(self, data):
         diff = super(NavBarPlugin, self).on_settings_save(data)
         self._logger.debug("data: " + str(data))
-        
+
         if "bedTempDisplayName" in data:
-            self.bedTempDisplayName    = data["bedTempDisplayName"]
+            self.bedTempDisplayName = data["bedTempDisplayName"]
         if "hotendTempDisplayName" in data:
             self.hotendTempDisplayName = data["hotendTempDisplayName"]
         if "cpuTempDisplayName" in data:
-            self.cpuTempDisplayName    = data["cpuTempDisplayName"]
-        
+            self.cpuTempDisplayName = data["cpuTempDisplayName"]
+
         if "displayCpuTemp" in data:
             self.displayCpuTemp = data["displayCpuTemp"]
             if self.displayCpuTemp:
@@ -130,7 +130,7 @@ class NavBarPlugin(octoprint.plugin.StartupPlugin,
                         self._checkTempTimer.cancel()
                     except Exceptionx:
                         pass
-                        
+
         if "cmd" in data:
             self.cmd = data["cmd"]
             self.cmd_name = data["cmd_name"]
@@ -143,7 +143,7 @@ class NavBarPlugin(octoprint.plugin.StartupPlugin,
                         self._checkCmdTimer.cancel()
                     except Exceptionx:
                         pass
-                        
+
         self._plugin_manager.send_plugin_message(self._identifier, dict())
 
         return diff

@@ -13,18 +13,10 @@
             <input type="text" name="settings-navbartemp-hotendtemp-displayname" data-bind="value: settings.displayNames.hotend"/>
         </div>
     </div>
-    <div class="control-group">
-        <label class="control-label" for="settings-navbartemp-display"></label>
-        <div class="controls">
-            <label class="checkbox">
-                <input type="checkbox" data-bind="checked: settings.displayCpuTemp">{{ _('Display internal temperature') }}
-            </label>
-        </div>
-    </div>
     <div class="control-group" data-bind="visible: settings.displayCpuTemp">
         <label class="control-label" for="settings-navbartemp-cputemp-displayname">{{ _('SoC') }}</label>
         <div class="controls">
-            <input type="text" name="settings-navbartemp-cputemp-displayname" data-bind="value: settings.displayNames.cpu"/>
+            <input type="text" name="settings-navbartemp-cputemp-displayname" data-bind="value: settings.displayNames.cpu">
         </div>
     </div>
 </form>

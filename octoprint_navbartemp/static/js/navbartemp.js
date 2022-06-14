@@ -44,7 +44,6 @@ $(function() {
                 var name = toolName.charAt(0);
                 if(name == 'T'){
                     name = 'E';
-                    
                 }
                 if(toolName.split(" ")[1]) {
                     name += toolName.split(" ")[1];
@@ -90,9 +89,9 @@ $(function() {
                     fahrenheit = " ("+_.sprintf("%.1f&deg;F", (data.soctemp * (9/5)) + 32)+")";
                 }
                 if(self.settings.makeMoreRoom() == false) {
-                    self.socTemp(self.settings.soc_name() + _.sprintf(": %.1f&deg;C", data.soctemp)+fahrenheit);
+                    self.socTemp(self.settings.displayNames.cpu() + _.sprintf(": %.1f&deg;C", data.soctemp)+fahrenheit);
                 } else {
-                    self.socTemp(self.settings.soc_name() + _.sprintf(":%.1f&deg;C", data.soctemp)+fahrenheit);
+                    self.socTemp(self.settings.displayNames.cpu() + _.sprintf(":%.1f&deg;C", data.soctemp)+fahrenheit);
                 }
             }
             if (data.cmd_name) {
