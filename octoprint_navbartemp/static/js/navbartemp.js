@@ -44,12 +44,21 @@ $(function() {
                 var name = toolName.charAt(0);
                 if(name == 'T'){
                     name = 'E';
+                    
                 }
                 if(toolName.split(" ")[1]) {
                     name += toolName.split(" ")[1];
                 }
             } else {
                 var name = toolName;
+            
+                if (toolName == "Tool" || toolName == "End" || toolName == "Hotend" || toolName == "Hot End") {
+                    name = self.settings.displayNames.hotend;
+                } else if (toolName == "Bett" || toolName == "Bed") {
+                    name = self.settings.displayNames.bed;
+                } else {
+                    name += ":";
+                }
             }
             var output = ""
 

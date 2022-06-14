@@ -1,0 +1,35 @@
+<h4>Configuration for custom display names</h4>
+
+<form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="settings-navbartemp-bedtemp-displayname">{{ _('Bed Temp') }}</label>
+        <div class="controls">
+            <input type="text" name="settings-navbartemp-bedtemp-displayname" data-bind="value: settings.displayNames.bed"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="settings-navbartemp-hotendtemp-displayname">{{ _('Hotend') }}</label>
+        <div class="controls">
+            <input type="text" name="settings-navbartemp-hotendtemp-displayname" data-bind="value: settings.displayNames.hotend"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="settings-navbartemp-display"></label>
+        <div class="controls">
+            <label class="checkbox">
+                <input type="checkbox" data-bind="checked: settings.displayCpuTemp">{{ _('Display internal temperature') }}
+            </label>
+        </div>
+    </div>
+    <div class="control-group" data-bind="visible: settings.displayCpuTemp">
+        <label class="control-label" for="settings-navbartemp-cputemp-displayname">{{ _('SoC') }}</label>
+        <div class="controls">
+            <input type="text" name="settings-navbartemp-cputemp-displayname" data-bind="value: settings.displayNames.cpu"/>
+        </div>
+    </div>
+</form>
+
+
+
+
+
