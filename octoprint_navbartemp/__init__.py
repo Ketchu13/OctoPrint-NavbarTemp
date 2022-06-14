@@ -93,17 +93,20 @@ class NavBarPlugin(octoprint.plugin.StartupPlugin,
 
     # ~~ SettingsPlugin
     def get_settings_defaults(self):
-        return dict(displayCpuTemp=True,
-                    piSocTypes=self.piSocTypes,
-                    cmd="",
-                    cmd_name="",
-                    useShortNames=False,
-                    makeMoreRoom=False,
-                    soc_name="SoC",
-                    displayNames = dict(
-                    bed = self.bedTempDisplayName,
-                    hotend = self.hotendTempDisplayName,
-                    cpu = self.cpuTempDisplayName)
+        return dict(
+            displayCpuTemp=True,
+            piSocTypes=self.piSocTypes,
+            cmd="",
+            cmd_name="",
+            useShortNames=False,
+            makeMoreRoom=False,
+            soc_name="SoC",
+            displayNames = dict(
+                bed = self.bedTempDisplayName,
+                hotend = self.hotendTempDisplayName,
+                cpu = self.cpuTempDisplayName
+            )
+        )
 
     def on_settings_save(self, data):
         diff = super(NavBarPlugin, self).on_settings_save(data)
