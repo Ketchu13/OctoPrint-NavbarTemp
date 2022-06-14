@@ -112,12 +112,12 @@ class NavBarPlugin(octoprint.plugin.StartupPlugin,
         diff = super(NavBarPlugin, self).on_settings_save(data)
         self._logger.debug("data: " + str(data))
         
-        if "displayNames.bedTempDisplayName" in data:
-            self.bedTempDisplayName    = data["displayNames.bedTempDisplayName"]
-        if "displayNames.hotendTempDisplayName" in data:
-            self.hotendTempDisplayName = data["displayNames.hotendTempDisplayName"]
-        if "displayNames.cpuTempDisplayName" in data:
-            self.cpuTempDisplayName    = data["displayNames.cpuTempDisplayName"]        
+        if "bedTempDisplayName" in data:
+            self.bedTempDisplayName    = data["bedTempDisplayName"]
+        if "hotendTempDisplayName" in data:
+            self.hotendTempDisplayName = data["hotendTempDisplayName"]
+        if "cpuTempDisplayName" in data:
+            self.cpuTempDisplayName    = data["cpuTempDisplayName"]
         
         if "displayCpuTemp" in data:
             self.displayCpuTemp = data["displayCpuTemp"]
